@@ -1,0 +1,25 @@
+-- 寿险意外险并税管理列表表
+CREATE TABLE insurance_tax_management (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '序号',
+    employee_name VARCHAR(100) NOT NULL COMMENT '员工姓名',
+    insurance_type VARCHAR(50) COMMENT '保险类型',
+    insurance_year VARCHAR(10) COMMENT '保险年度',
+    insurance_start_date DATE COMMENT '保险开始日期',
+    insurance_end_date DATE COMMENT '保险结束日期',
+    tax_detail_id BIGINT COMMENT '并税详情ID（关联并税详情表）',
+    tax_status VARCHAR(20) COMMENT '并税状态',
+    push_status VARCHAR(20) COMMENT '推送状态',
+    hire_date DATE COMMENT '入职日期',
+    leave_date DATE COMMENT '离职日期',
+    employee_type VARCHAR(50) COMMENT '员工类型',
+    organization VARCHAR(200) COMMENT '组织',
+    work_location VARCHAR(100) COMMENT '工作地',
+    contract_company VARCHAR(200) COMMENT '合同所属公司',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    INDEX idx_employee_name (employee_name),
+    INDEX idx_insurance_year (insurance_year),
+    INDEX idx_tax_status (tax_status),
+    INDEX idx_push_status (push_status),
+    INDEX idx_tax_detail_id (tax_detail_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='寿险意外险并税管理列表表';
